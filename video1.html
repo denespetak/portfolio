@@ -171,7 +171,7 @@ video {
   <img src="pics/works-red.png" alt="works" class="responsive" width="200" height="200">
 </center>
 
-<!-- --------- VIDEÓK – FOTÓK HELYETT --------- -->
+<!-- --------- vidik --------- -->
 
 <div class="video-block">
   <video controls>
@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Ha betöltődtek a metaadatok, ugorjunk 1 másodpercre
     video.addEventListener("loadedmetadata", function() {
 
-      const targetTime = Math.min(1, video.duration - 0.1);
+      const targetTime = Math.min(1.2, video.duration - 0.1);
       video.currentTime = targetTime;
     });
 
