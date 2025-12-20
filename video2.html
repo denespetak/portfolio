@@ -174,17 +174,23 @@ video {
 <!-- --------- VIDEÓK – FOTÓK HELYETT --------- -->
 
 <div class="video-block">
-  <video controls>
-    <source src="pics/video/video005s.mp4" type="video/mp4">
-  </video>
+<video controls preload="metadata" class="responsive-video"
+       poster="pics/video/video005s.png">
+  <source src="pics/video/video005s.mp4" type="video/mp4">
+  A böngésződ nem támogatja a videót.
+</video>
 <br>
-  <video controls>
-    <source src="pics/video/video006s.mp4" type="video/mp4">
-  </video>
+<video controls preload="metadata" class="responsive-video"
+       poster="pics/video/video006s.png">
+  <source src="pics/video/video006s.mp4" type="video/mp4">
+  A böngésződ nem támogatja a videót.
+</video>
 <br>
-  <video controls>
-    <source src="pics/video/video007.mp4" type="video/mp4">
-  </video>
+<video controls preload="metadata" class="responsive-video"
+       poster="pics/video/video007.png">
+  <source src="pics/video/video007.mp4" type="video/mp4">
+  A böngésződ nem támogatja a videót.
+</video>
 <br> 
 
 </div>
@@ -219,31 +225,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
     let posterCaptured = false;
-
-    // Ha betöltődtek a metaadatok, ugorjunk 1 másodpercre
-    video.addEventListener("loadedmetadata", function() {
-
-      const targetTime = Math.min(5, video.duration - 0.1);
-      video.currentTime = targetTime;
-    });
-
-    // Amikor sikerült odaugrani az 1 mp-es frame-hez
-    video.addEventListener("seeked", function() {
-
-      if (posterCaptured) return;  // csak egyszer fusson le
-
-      // Canvas méretezése
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-
-      // Képkocka rajzolása
-      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-      // Poster kép beállítása
-      const posterData = canvas.toDataURL("image/jpeg");
-      video.setAttribute("poster", posterData);
-
-      posterCaptured = true;
 
       // *** VISSZA A VIDEÓT A LEGELEJÉRE ***
       video.currentTime = 0;

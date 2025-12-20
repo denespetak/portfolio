@@ -174,21 +174,29 @@ video {
 <!-- --------- vidik --------- -->
 
 <div class="video-block">
-  <video controls>
-    <source src="pics/video/video001.mp4" type="video/mp4">
-  </video>
+<video controls preload="metadata" class="responsive-video"
+       poster="pics/video/video001.png">
+  <source src="pics/video/video001.mp4" type="video/mp4">
+  A böngésződ nem támogatja a videót.
+</video>
 <br>
-  <video controls>
-    <source src="pics/video/video003.mp4" type="video/mp4">
-  </video>
+<video controls preload="metadata" class="responsive-video"
+       poster="pics/video/video003.png">
+  <source src="pics/video/video003.mp4" type="video/mp4">
+  A böngésződ nem támogatja a videót.
+</video>
 <br>
-  <video controls>
-    <source src="pics/video/video002s.mp4" type="video/mp4">
-  </video>
+<video controls preload="metadata" class="responsive-video"
+       poster="pics/video/video002s.png">
+  <source src="pics/video/video002s.mp4" type="video/mp4">
+  A böngésződ nem támogatja a videót.
+</video>
 <br> 
-    <video controls>
-    <source src="pics/video/video004s.mp4" type="video/mp4">
-  </video>
+<video controls preload="metadata" class="responsive-video"
+       poster="pics/video/video004s.png">
+  <source src="pics/video/video004s.mp4" type="video/mp4">
+  A böngésződ nem támogatja a videót.
+</video>
 </div>
 
 <br><br>
@@ -222,30 +230,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const ctx = canvas.getContext("2d");
     let posterCaptured = false;
 
-    // Ha betöltődtek a metaadatok, ugorjunk 1 másodpercre
-    video.addEventListener("loadedmetadata", function() {
-
-      const targetTime = Math.min(1.2, video.duration - 0.1);
-      video.currentTime = targetTime;
-    });
-
-    // Amikor sikerült odaugrani az 1 mp-es frame-hez
-    video.addEventListener("seeked", function() {
-
-      if (posterCaptured) return;  // csak egyszer fusson le
-
-      // Canvas méretezése
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-
-      // Képkocka rajzolása
-      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-      // Poster kép beállítása
-      const posterData = canvas.toDataURL("image/jpeg");
-      video.setAttribute("poster", posterData);
-
-      posterCaptured = true;
 
       // *** VISSZA A VIDEÓT A LEGELEJÉRE ***
       video.currentTime = 0;
