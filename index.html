@@ -206,22 +206,26 @@ span:hover:after {
 }
 
 
-.scaledImage a {
+
+
+* {
   -webkit-tap-highlight-color: transparent !important;
-  
+  -webkit-focus-ring-color: transparent !important;
+  outline: none !important;
 }
 
-a {
-  -webkit-tap-highlight-color: transparent;
+@media (hover: hover) {
+  :focus-visible {
+    outline: 2px solid #4a90e2;
+  }
 }
 
-a,
-button,
-input,
-textarea,
-select {
-  -webkit-tap-highlight-color: transparent;
+* {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
+
+
 
 </style>
 
